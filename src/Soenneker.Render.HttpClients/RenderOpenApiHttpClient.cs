@@ -11,6 +11,7 @@ using Soenneker.Utils.HttpClientCache.Abstract;
 
 namespace Soenneker.Render.HttpClients;
 
+/// <inheritdoc cref="IRenderOpenApiHttpClient" />
 public sealed class RenderOpenApiHttpClient : IRenderOpenApiHttpClient
 {
     private readonly IHttpClientCache _httpClientCache;
