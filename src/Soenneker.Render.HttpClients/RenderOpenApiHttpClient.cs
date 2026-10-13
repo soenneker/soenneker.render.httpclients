@@ -30,7 +30,7 @@ public sealed class RenderOpenApiHttpClient : IRenderOpenApiHttpClient
     {
         return _httpClientCache.Get(_cacheKey, (config: _config, baseUrl: _config["Render:ClientBaseUrl"] ?? _prodBaseUrl), static state =>
         {
-            var apiKey = state.config.GetValueStrict<string>("Render:ApiKey");
+            var apiKey = state.config.GetStringStrict("Render:ApiKey");
             string authHeaderName = state.config["Render:AuthHeaderName"] ?? "Authorization";
             string authHeaderValueTemplate = state.config["Render:AuthHeaderValueTemplate"] ?? "Bearer {token}";
             string authHeaderValue = authHeaderValueTemplate.Replace("{token}", apiKey, StringComparison.Ordinal);
